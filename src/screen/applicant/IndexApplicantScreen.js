@@ -1,0 +1,49 @@
+import React from "react";
+import {Button, Text, View, TouchableOpacity} from "react-native";
+import {StackNavigator, SwitchNavigator} from "react-navigation";
+
+import {Icon} from "native-base";
+
+import {Fonts} from "../../utils/Fonts";
+
+//Srceen
+import ApplicantScreen from "./ApplicantScreen";
+
+const IndexApplicantScreen = StackNavigator({
+    ApplicantScreen: {
+        screen: ApplicantScreen,
+        navigationOptions: ({navigation}) => ({
+            title: "คำขอรับความช่วยเหลือ",
+            headerStyle: {
+                backgroundColor: "#fff",
+                height: 50,
+                elevation: 0,
+                shadowOpacity: 0
+            },
+            headerTintColor: "#000",
+            headerTitleStyle: {
+                fontWeight: "200",
+                fontSize: 20,
+                fontFamily: Fonts.SukhumvitSetSemiBold,
+                color: "#000",
+                textAlign: "center",
+                flex: 1,
+                marginTop: 5
+            },
+            headerLeft: (
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <View style={{margin: 15}}>
+                        <Icon type="Ionicons" name="md-arrow-back" size={24} color="#000000" />
+                    </View>
+                </TouchableOpacity>
+            ),
+            headerRight: (
+                <View style={{ margin:15 }} />
+            )
+        })
+    }
+});
+
+export default SwitchNavigator({
+    IndexApplicantScreen: IndexApplicantScreen
+});
