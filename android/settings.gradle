@@ -1,0 +1,3 @@
+rootProject.name = 'JFO'
+
+include ':app'
